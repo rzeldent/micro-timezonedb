@@ -3,12 +3,12 @@
 //
 //*******************************************************************************
 
-typedef struct timezone {
+typedef struct posix_timezone {
     const char *zone_name;
     const char *posix_tz;
-} timezone_t;
+} posix_timezone_t;
 
-const timezone_t timezones[] = {
+const posix_timezone_t timezones[] = {
     {"Africa/Abidjan", "GMT0"},
     {"Africa/Accra", "GMT0"},
     {"Africa/Addis Ababa", "EAT-3"},

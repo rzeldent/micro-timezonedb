@@ -1,9 +1,9 @@
 #! /usr/bin/python3
 
-# This script only runs on Linux platforms.
-# The /usr/share/zoneinfo/posix directory contains the files with the posix strings
+# Only runs on Linux platforms. There the zoneinfo directory contains the posix strings
 
 import os
+import re
 
 tzfile_dir = '/usr/share/zoneinfo/posix'
 output_file = 'include/timezonedb.h'
@@ -31,12 +31,12 @@ with open(output_file, 'w') as output:
         '//\n'
         '//*******************************************************************************\n'
         '\n'
-        'typedef struct timezone {\n'
+        'typedef struct posix_timezone {\n'
         '    const char *zone_name;\n'
         '    const char *posix_tz;\n'
-        '} timezone_t;\n'
+        '} posix_timezone_t;\n'
         '\n'
-        'const timezone_t timezones[] = {\n'
+        'const posix_timezone_t timezones[] = {\n'
         f'{timezone_values}\n'
         '};'
         )
