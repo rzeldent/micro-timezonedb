@@ -1,10 +1,14 @@
 #include <Arduino.h>
+#include <time.h>
 
 #include <timezonelookup.h>
 
 void setup()
 {
-    auto tz = lookup_posix_timezone_tz("Africa/Luanda");
+    configTime(0, 0, "pool.ntp.org");
+    auto tz_data = lookup_posix_timezone_tz("Africa/Luanda");
+    setenv("TZ", tz.posix_tz, 1);
+    tzset();
 }
 
 void loop()
