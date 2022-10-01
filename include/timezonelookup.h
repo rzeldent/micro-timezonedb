@@ -1,7 +1,7 @@
 #pragma once
 
 #include <timezonedb.h>
-#include <cstdlib.h>
+#include <stdlib.h>
 
 template<size_t n>
 const char *lookup_timezone_posix_tz(const char *zone_name)
