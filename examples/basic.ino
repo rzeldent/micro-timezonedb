@@ -4,7 +4,7 @@
 
 void setup()
 {
-    auto tz = lookup_timezone_posix_tz("Africa/Luanda);
+    auto tz = lookup_timezone_posix_tz("Africa/Luanda");
 }
 
 void loop()
