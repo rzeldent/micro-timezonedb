@@ -33,7 +33,7 @@ auto tz_data = lookup_posix_timezone_tz("Africa/Luanda");
 
 Next, the data required to calculate to the local time can be set and loaded:
 ```
-setenv("TZ", tz_data.posix_tz, 1);
+setenv("TZ", tz_data->posix_tz, 1);
 tzset();
 ```
 ## Build script
