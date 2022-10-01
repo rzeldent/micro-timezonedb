@@ -28,12 +28,12 @@ configTime(0, 0, "pool.ntp.org");
 ```
 Then, the Posix timezone data for a IANA timezone name has to be retrieved:
 ```
-auto tz = lookup_posix_timezone_tz("Africa/Luanda");
+auto tz_data = lookup_posix_timezone_tz("Africa/Luanda");
 ```
 
 Next, the data required to calculate to the local time can be set and loaded:
 ```
-setenv("TZ", tz.posix_tz, 1);
+setenv("TZ", tz_data.posix_tz, 1);
 tzset();
 ```
 ## Build script

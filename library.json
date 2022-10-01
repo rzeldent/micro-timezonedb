@@ -2,7 +2,7 @@
     "name": "micro-timezonedb",
     "version": "1.0.0",
     "description": "A timezone database to be used for Posix TZ variable",
-    "keywords": "timezone posix",
+    "keywords": "timezone database posix",
     "repository": {
         "type": "git",
         "url": "https://github.com/rzeldent/micro-timezonedb"
