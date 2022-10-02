@@ -21,7 +21,9 @@ for root, dirs, files in os.walk(tzfile_dir):
 # Sort by zone_name
 timezones = {k: v for k, v in sorted(timezones.items())}
 # Generate values
-timezone_values = ',\n'.join(f'    {{"{timezone}", "{timezones[timezone]}"}}' for timezone in timezones)
+max_zone_name = max(len(x) for x in timezones)
+timezone_zones = ',\n'.join(f'    "{timezone}"' for timezone in timezones)
+timezone_values = ',\n'.join(f'    {{ "{timezone}", "{timezones[timezone]}" }}' for timezone in timezones)
 
 print(f'Writing output file: {output_file}');
 with open(output_file, 'w') as output:
@@ -31,12 +33,16 @@ with open(output_file, 'w') as output:
         '//\n'
         '//*******************************************************************************\n'
         '\n'
-        'typedef struct posix_timezone {\n'
+        f'const char posix_timezone_names[][{max_zone_name + 1}] = {{\n'
+        f'{timezone_zones}\n'
+        '};\n'
+        '\n'
+        'typedef struct posix_timezone_tz {\n'
         '    const char *zone_name;\n'
         '    const char *posix_tz;\n'
-        '} posix_timezone_t;\n'
+        '} posix_timezone_tz_t;\n'
         '\n'
-        'const posix_timezone_t timezones[] = {\n'
+        'const posix_timezone_tz_t posix_timezone_tzs[] = {\n'
         f'{timezone_values}\n'
         '};'
         )
