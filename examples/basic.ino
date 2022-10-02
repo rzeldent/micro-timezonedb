@@ -1,7 +1,7 @@
 #include <Arduino.h>
 #include <time.h>
 
-#include <timezonelookup.h>
+#include <timezonedb_lookup.h>
 
 void setup()
 {
