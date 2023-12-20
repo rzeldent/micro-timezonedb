@@ -1,6 +1,6 @@
 {
     "name": "micro-timezonedb",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "description": "A timezone database to be used for Posix TZ variable",
     "keywords": "arduino time localtime timezone database posix",
     "repository": {
