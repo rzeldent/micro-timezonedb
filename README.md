@@ -42,23 +42,30 @@ tzset();
 
 ## Database details
 
-The database contains two arrays:
-  - const char timezone_names[][33], that contains all the zone names (fixed length)
-  - const posix_timezone_tz_t posix_timezone_tzs[], that contains all the zones and their posix tz definition
+The database contains of one array:
 
-This is duplicate information but is done to have a fixed-size array of all the names.
-The compiler will optimize the duplicate zone names.
+```cpp
+constexpr posix_timezone_tz_t posix_timezone_tzs[];
+```
+
+that contains the time zones the major cities and their posix TZ definition.
 
 The database is composed of posix_timezone_tz_t structure to store the posix data for a timezone:
-```
+
+```cpp
+typedef const char timezone_name[33];
+
 typedef struct posix_timezone_tz {
-    const char *zone_name;
+    timezone_name zone_name;
     const char *posix_tz;
 } posix_timezone_tz_t;
 ```
+
 ## Build script
+
 Included there is a little Python script to generate the database header file.
 This can only be done on Linux systems because they contain the IANA database files.
 
 ## Collaboration
+
 Collaboration is appreciated and bug reports or feature requests are welcome!
