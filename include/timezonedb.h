@@ -3,7 +3,7 @@
 //
 //*******************************************************************************
 
-typedef const char[33] timezone_name;
+typedef const char timezone_name[33];
 
 typedef struct posix_timezone_tz {
     timezone_name zone_name;
